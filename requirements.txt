@@ -1,0 +1,6 @@
+pandas
+numpy
+scikit-learn
+evidently==0.4.40
+matplotlib
+joblib
