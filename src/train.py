@@ -7,9 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
 
-# -----------------------------
 # Load Dataset
-# -----------------------------
 
 data = load_breast_cancer()
 
@@ -21,9 +19,7 @@ X = pd.DataFrame(
 y = pd.Series(data.target, name="target")
 
 
-# -----------------------------
 # Train Test Split
-# -----------------------------
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -33,18 +29,14 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 
-# -----------------------------
 # Train Logistic Regression
-# -----------------------------
 
 model = LogisticRegression(max_iter=10000)
 
 model.fit(X_train, y_train)
 
 
-# -----------------------------
 # Evaluate Model
-# -----------------------------
 
 predictions = model.predict(X_test)
 
@@ -53,18 +45,14 @@ accuracy = accuracy_score(y_test, predictions)
 print(f"Model Accuracy : {accuracy:.4f}")
 
 
-# -----------------------------
 # Save Model
-# -----------------------------
 
 joblib.dump(model, "models/model.pkl")
 
 print("Model Saved Successfully")
 
 
-# -----------------------------
 # Create Reference Dataset
-# -----------------------------
 
 reference_data = X.copy()
 

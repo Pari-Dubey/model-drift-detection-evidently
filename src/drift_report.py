@@ -3,9 +3,7 @@ from evidently.report import Report
 from evidently.metric_preset import DataDriftPreset
 
 
-# ---------------------------------
 # Load Datasets
-# ---------------------------------
 
 reference_data = pd.read_csv(
     "data/reference.csv"
@@ -17,10 +15,7 @@ current_data = pd.read_csv(
 
 print("Datasets Loaded Successfully")
 
-
-# ---------------------------------
 # Create Report
-# ---------------------------------
 
 report = Report(
     metrics=[
@@ -30,10 +25,8 @@ report = Report(
 
 print("Report Object Created")
 
-
-# ---------------------------------
 # Compare Datasets
-# ---------------------------------
+
 
 report.run(
     reference_data=reference_data,
@@ -42,10 +35,7 @@ report.run(
 
 print("Comparison Completed")
 
-
-# ---------------------------------
 # Save HTML Report
-# ---------------------------------
 
 report.save_html(
     "reports/model_drift_report.html"
